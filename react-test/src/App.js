@@ -1,7 +1,7 @@
 import React from 'react';
 //import './App.css';
 
-class ShoppingList extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div className="classname">
@@ -14,4 +14,4 @@ class ShoppingList extends React.Component {
   }
 }
 
-export default ShoppingList;
+export default App;
