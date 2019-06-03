@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import ReactThing from './ReactThing';
-import test from './test';
+{//import test from './test';
+}
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<ReactThing />, document.getElementById('root'));
