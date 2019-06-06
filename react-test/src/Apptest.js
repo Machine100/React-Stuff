@@ -1,17 +1,17 @@
 import React from 'react';
 
 
-class Apptest extends React.Component {
+class ChildComponent extends React.Component {
   render() {
     return (
       <div className="classname">
-        <h1>Shopping List for {this.props.name}</h1>
-        <ul>
-          <li>TextFromApptestComponent</li>
-        </ul>
+        
+        <h1>It is easy to call a component. just use it like a tag.</h1>
+        <h1>Class names are CapitalCamelCase.</h1>
+        <h1>Print a prop: {this.props.name}</h1> 
       </div>
     );
   }
 }
 
-export default Apptest;
+export default ChildComponent;
