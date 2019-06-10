@@ -7,17 +7,38 @@
     <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>React Test</title>
+  
+    <style>
+      .wrapper {
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 2em;
+      }
+
+      .wrapper > div{
+        background: #eae;
+        padding: 2em;
+     }
+
+    </style>
+
   </head>
   <body>
+    
+    <a> a tag </a>
+    <div class="wrapper">
+      <div> text for div1 inside a wrapper</div>
+      <div> text for div2 inside a wrapper</div>
+      <div> text for div1 inside a wrapper</div>
+      <div> text for div2 inside a wrapper</div>
+    </div>
     
 
 
 
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <h1> h1 tag </h1>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-    -->
+
   </body>
 </html>
