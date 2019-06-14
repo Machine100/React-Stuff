@@ -19,6 +19,12 @@
   color: white;
 }
 
+.button1 {
+  background-color: #ccc;
+  color: #aaa;
+  font-size: 30px;
+}
+
 .App-link {
   color: #61dafb;
 }
