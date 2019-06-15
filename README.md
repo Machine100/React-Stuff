@@ -1,2 +1,3 @@
 # React-Stuff
-Do something
+
+Learning CSS, JavaScript, and React through projects in this repo.
