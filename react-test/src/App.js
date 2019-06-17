@@ -25,11 +25,6 @@ class App extends React.Component {
         <h1> put these buttons in css-grid </h1>
 
         <ChildComponent />
-<<<<<<< HEAD
-        <button className="button1"> buttontext </button>
-      
-=======
->>>>>>> 06b89598f062eb6754212b7bfb1fd1b0fe406e64
       </div>
     );
   }
