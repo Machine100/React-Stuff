@@ -12,6 +12,7 @@ class App extends React.Component {
         
         <ChildComponent />
         <button className="button1"> buttontext </button>
+      
       </div>
     );
   }
