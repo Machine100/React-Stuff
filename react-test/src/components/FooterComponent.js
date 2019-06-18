@@ -1,16 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Button = styled.button`
+  font-size: 1.5em;
+  background-color: orange;
+  color: green;
+`
+
+
 
 class FooterComponent extends React.Component {
+
+ 
+
   render() {
     return (
       <div>
         
         <div>
-          <button className="button1"> footerarea1 </button>
-          <button className="button1"> footerarea2 </button>
-          <button className="button1"> footerarea3 </button>
+          <Button > footerareaaaaaaaa1 </Button>
+          <Button > footerarea2 </Button>
+          <Button > footerarea3 </Button>
         </div> 
 
       </div>

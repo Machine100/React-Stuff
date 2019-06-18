@@ -1,23 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Button = styled.button`
+  font-size: 1.5em;
+  background-color: black;
+  color: red;
+`
 
 class ChildComponent extends React.Component {
   render() {
     return (
       <div>
-        
-        {/* This is the grid container. All direct children become grid items. */}
         <div className="buttongrid">
-          <button className="button1"> button1 </button>
-          <button className="button1"> button2 </button>
-          <button className="button1"> button3 </button>
-          <button className="button1"> button4 </button>
-          <button className="button1"> button5 </button>
-          <button className="button1"> button6 </button>
-          <button className="button1"> button7 </button>
-          <button className="button1"> button8 </button>
-          <button className="button1"> button9 </button>
+          <Button> button1 </Button>
+          <Button> button2 </Button>
+          <Button> button3 </Button>
+          <Button> button4 </Button>
+          <Button> button5 </Button>
+          <Button> button6 </Button>
+          <Button> button7 </Button>
+          <Button> button8 </Button>
+          <Button> button9 </Button>
         </div> 
       </div>
     );

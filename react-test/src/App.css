@@ -3,6 +3,13 @@
 /* These css properties cascade down into all elements and components through the file structure.
    This might lead to conflicits in larger applications.*/
 
+.sitewrapper{
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+
 .headerwrapper{
   max-width: 60rem;
   margin-left: auto;
@@ -21,16 +28,9 @@
   margin-right:auto;
 }
 
-.button1 {
-  background-color: #ccc;
-  color: #aaa;
-  font-size: 30px;
-}
-
-
 .buttongrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 4fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
