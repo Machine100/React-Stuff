@@ -34,3 +34,12 @@
   grid-template-rows: 1fr 1fr 1fr;
 }
 
+.headergrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footergrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+}

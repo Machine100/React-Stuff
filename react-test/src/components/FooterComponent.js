@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button = styled.button`
+const FooterButton = styled.button`
   font-size: 1.5em;
   background-color: orange;
   color: green;
+  width: 200px;
 `
 
 
@@ -17,10 +18,10 @@ class FooterComponent extends React.Component {
     return (
       <div>
         
-        <div>
-          <Button > footerareaaaaaaaa1 </Button>
-          <Button > footerarea2 </Button>
-          <Button > footerarea3 </Button>
+        <div className="footergrid">
+          <FooterButton > footerarea1 </FooterButton>
+          <FooterButton > footerarea2 </FooterButton>
+          <FooterButton > footerarea3 </FooterButton>
         </div> 
 
       </div>

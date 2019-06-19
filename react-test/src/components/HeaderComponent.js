@@ -11,7 +11,7 @@ class HeaderComponent extends React.Component {
   render() {
     return (
       <div>
-        <div>  
+        <div className="headergrid">  
           <Button> headerarea1 </Button>
           <Button> headerarea2 </Button>
           <Button> headerarea3 </Button>
