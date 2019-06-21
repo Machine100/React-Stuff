@@ -1,3 +1,3 @@
 # React-Stuff
 
-Learning CSS, JavaScript, and React through projects in this repo.
+Build react projects in here. Experimenting with CSS and JavaScript.
