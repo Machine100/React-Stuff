@@ -1,14 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ReactThing from './ReactThing';
-{//import test from './test';
-}
-import * as serviceWorker from './serviceWorker';
+//import ReactThing from './ReactThing';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 
-ReactDOM.render(<ReactThing />, document.getElementById('root'));
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
+//import MenuIcon from '@material-ui/core/MenuIcon';
+import Typography from '@material-ui/core/Typography';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+ReactDOM.render(
+
+
+
+	<AppBar position="static">
+		<Toolbar>
+			<IconButton color="inherit" aria-label="Menu">
+						</IconButton>
+			<Typography variant="h6" color="inherit">
+				dkdkdkdkdk
+			</Typography>
+		</Toolbar>
+	</AppBar>,
+
+	document.getElementById('root')
+);
+
+
+
