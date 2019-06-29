@@ -5,14 +5,13 @@ import ChildComponent from './Apptest'
 
 class App extends React.Component {
   
-  render() {
-    
+  render() {    
     return (
       <div>
         
         <div className="buttongrid">
-          <button className="button1"> button1 </button>
-          <button className="button1"> button2 </button>
+          <button className="button1" button1 />
+          <button className="button1" button2 />
           <button className="button1"> button3 </button>
           <button className="button1"> button4 </button>
           <button className="button1"> button5 </button>
