@@ -1,13 +1,20 @@
 import React from 'react';
+import AuthBar from './components/AuthBar'
 
-import './App.css';
 
 function App() {
   return (
-    <div className="App">
 
+    <div>
+ 		<AuthBar />
     </div>
+
   );
 }
+
+
+
+
+
 
 export default App;

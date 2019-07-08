@@ -1,9 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const dog = {
 	sound:'bark',
 	makenoise: function(){console.log(this.sound)}
@@ -26,20 +40,4 @@ console.log (y)
 y()
 y()
 y()
-
-
-
-//console.log (cat)
-//console.log (cat.sound)
-//console.log (cat.makenoise)
-//cat.makenoise()
-// var y = cat.makenoise()
-// y()
-
-
-
-
-
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
+*/
