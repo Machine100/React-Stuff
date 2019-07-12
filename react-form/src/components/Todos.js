@@ -5,12 +5,12 @@ import Item from './Item'
 class Todos extends Component {
 
   render () {
-    console.log (this.props.thingstodo)
-    return this.props.thingstodo.map( (i) => ( 
-    	<h3> {i.id} </h3>
-    	) 
+    console.log (this.props.data)
+    console.log (this.props.data[0])
 
-    )
+
+
+  return this.props.data.map((i)=>( <h1> {i.title} </h1>)) 
   }
 }
 

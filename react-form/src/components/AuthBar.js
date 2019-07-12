@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 
 import styled from 'styled-components'
@@ -11,15 +11,27 @@ const Button = styled.button`
 `
 
 
-function AuthBar() {
-  return (
-    <div id="stripobuttons">
+class AuthBar extends Component{
+  
+  state={username:'ss'}
 
+  handleChange = (e) => {
+  	console.log ('kdkdkddk')
+  }
+
+  render() {
+    return (
+      <div id="stripobuttons">
     	
- 		<Button> Login </Button>
-
-    </div>
-  );
+    	  Username:
+    	  <input type='text' value={this.state.username} onChange={this.handleChange} />
+        
+    	  
+    	  <Button onClick={this.mashedMethod}> Login </Button>
+	    
+	  </div>
+    )
+  };
 }
 
 export default AuthBar;
