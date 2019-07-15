@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components'
 
 const Button = styled.button`
-	background-color: blue;
+	background-color: paleblue;
 	font-size: 30px;
 	padding: 1rem;
 	margin: 1rem;
@@ -13,7 +13,8 @@ const Button = styled.button`
 
 class AuthBar extends Component{
   
-  state={username:'ss'}
+  state={username:'ss',
+         numberondisplay: }
 
   handleChange = (e) => {
   	console.log ('kdkdkddk')
