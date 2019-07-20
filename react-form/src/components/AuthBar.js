@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components'
-
+import firebase from 'firebase'
 
 
 const Button = styled.button`
@@ -26,16 +26,16 @@ class AuthBar extends Component{
   updateUsername = (e) => {this.setState( {username: e.target.value} )}
   updatePassword = (e) => {this.setState( {password: e.target.value} )}
 
-//  logUserIn = (e) => {
-//	console.log(this.username,this.password)
-//	const promise = auth.signInWithEmailAndPassword(this.username, this.password).then(cred => {
-//		console.log(cred);
-//		userInfo = cred.user;
-//		console.log(userInfo);
-//		user = firebase.auth().currentUser;
-//	})
-//	promise.catch(e => console.log(e.message));
-//  }
+  logUserIn = (e) => {
+	console.log(this.username,this.password)
+	const promise = auth.signInWithEmailAndPassword(this.username, this.password).then(cred => {
+		console.log(cred);
+		userInfo = cred.user;
+		console.log(userInfo);
+		user = firebase.auth().currentUser;
+	})
+	promise.catch(e => console.log(e.message));
+  }
 
 
 
