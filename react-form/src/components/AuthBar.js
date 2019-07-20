@@ -2,6 +2,21 @@ import React, {Component} from 'react';
 import styled from 'styled-components'
 import firebase from 'firebase'
 
+// TODO: Replace the following with your app's Firebase project configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyCBse51TtYhr0A19r9aIQZhjRG19HupQBM",
+    authDomain: "test-fd83f.firebaseapp.com",
+    databaseURL: "https://test-fd83f.firebaseio.com",
+    projectId: "test-fd83f",
+    storageBucket: "",
+    messagingSenderId: "603068759345",
+    appId: "1:603068759345:web:0fdcd0d9b54307a2"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+console.log (firebase)
+
 
 const Button = styled.button`
 	background-color: paleblue;
@@ -27,15 +42,17 @@ class AuthBar extends Component{
   updatePassword = (e) => {this.setState( {password: e.target.value} )}
 
   logUserIn = (e) => {
-	console.log(this.username,this.password)
-	const promise = auth.signInWithEmailAndPassword(this.username, this.password).then(cred => {
-		console.log(cred);
-		userInfo = cred.user;
-		console.log(userInfo);
-		user = firebase.auth().currentUser;
-	})
-	promise.catch(e => console.log(e.message));
-  }
+	console.log(this.state.username,this.state.password)
+  console.log(firebase.auth)
+  console.log(firebase.auth.Auth.signInWithEmailAndPassword)
+//	const promise = firebase.auth.signInWithEmailAndPassword(this.state.username, this.state.password).then(cred => {
+//		console.log(cred);
+//		var userInfo = cred.user;
+//		console.log(userInfo);
+//		var user = firebase.auth().currentUser;
+//	})
+//	promise.catch(e => console.log(e.message));
+ }
 
 
 
