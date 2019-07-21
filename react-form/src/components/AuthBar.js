@@ -44,14 +44,14 @@ class AuthBar extends Component{
   logUserIn = (e) => {
 	console.log(this.state.username,this.state.password)
   console.log(firebase.auth)
-  console.log(firebase.auth.Auth.signInWithEmailAndPassword)
-//	const promise = firebase.auth.signInWithEmailAndPassword(this.state.username, this.state.password).then(cred => {
-//		console.log(cred);
-//		var userInfo = cred.user;
-//		console.log(userInfo);
-//		var user = firebase.auth().currentUser;
-//	})
-//	promise.catch(e => console.log(e.message));
+  console.log(firebase.auth().signInWithEmailAndPassword)
+	const promise = firebase.auth().signInWithEmailAndPassword(this.state.username, this.state.password).then(cred => {
+		console.log(cred);
+		var userInfo = cred.user;
+		console.log(userInfo);
+		var user = firebase.auth().currentUser;
+	})
+	promise.catch(e => console.log(e.message));
  }
 
 
