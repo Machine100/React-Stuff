@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import AuthBar from './components/AuthBar'
-import Todos from './components/Todos'
+import Sync from './components/Sync'
 import firebase from 'firebase'
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
   	return (
       <div>
         <AuthBar />
+        <Sync />
       </div>
     );
   }
