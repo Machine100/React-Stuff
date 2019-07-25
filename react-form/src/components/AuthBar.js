@@ -22,13 +22,15 @@ const Button = styled.button`
 	padding: 1rem;
 	margin: 1rem;
 `
-
+// Listener for changes to the collection. 
+// Make this update state in the app somewhere.
 firebase.firestore().collection('users2').onSnapshot(snap=>{
 	console.log(snap)
-	console.log(snap.docChanges())
+//	console.log(snap.docChanges())
 	let changes = snap.docChanges()
 	changes.forEach( change => {
 		console.log( change.doc.data() )
+		console.log( change.doc.data().first)
        })
 })
 
@@ -56,7 +58,7 @@ class AuthBar extends Component{
    }
 
   addItem = (e) => {
-  	console.log(e)
+//  	console.log(e)
   	firebase.firestore().collection("users2").add({
     first: "Ada",
     last: "Lovelace",
@@ -70,6 +72,23 @@ class AuthBar extends Component{
     });
   }
 
+  displayItem = (e) => {
+  	const counter = firebase.firestore().collection('reactapp').doc('counters')
+  	counter.get().then(function(doc){ console.log(doc.data().numberbox)	})
+  }
+
+    updateItem = (e) => {
+// 	  console.log(e)
+      const counter = firebase.firestore().collection('reactapp').doc('counters')
+  	  counter.update({
+      numberbox: 2
+      })
+      .then(function(docRef) {      })
+      .catch(function(error) {
+        console.error("Error updating document: ", error);
+      });
+    }
+  
   render() {
     return (
       <div id="stripobuttons">
@@ -80,7 +99,8 @@ class AuthBar extends Component{
     	  <input type='text' value={this.state.password} onChange={this.updatePassword} />        
     	  <Button onClick={this.logUserIn}> Login </Button>
     	  <Button onClick={this.addItem}> addItem </Button>
-	      
+    	  <Button onClick={this.updateItem}> updateItem </Button>	      
+    	  <Button onClick={this.displayItem}> displayItem </Button>
 
 	      <h1> {this.state.numberondisplay} </h1>
 	  </div>
