@@ -23,15 +23,21 @@ const Button = styled.button`
 	margin: 1rem;
 `
 // Listener for changes to the collection. 
-// Make this update state in the app somewhere.
-firebase.firestore().collection('users2').onSnapshot(snap=>{
-	console.log(snap)
-//	console.log(snap.docChanges())
-	let changes = snap.docChanges()
-	changes.forEach( change => {
-		console.log( change.doc.data() )
-		console.log( change.doc.data().first)
-       })
+// Make this update state in the app somewhere.                 ---- I cannot access any state from here. 
+firebase.firestore().collection('reactapp').onSnapshot(snap=>{ //--- It is outside the react class              
+//	console.log(snap)                                            --- And so so how does the listener come in in the first place?
+//	console.log(snap.docChanges())                               --- And this . operater/module/notation I do not understand.
+//	let changes = snap.docChanges()
+//	changes.forEach( change => {
+      // console.log( change.doc.data() )
+    // display numberbox from snapshot
+//		console.log( change.doc.data().numberbox)
+//       })
+
+  	const count = firebase.firestore().collection('reactapp').doc('counters')   // deconstruct 
+  	count.get().then(function(doc){ console.log(doc.data().numberbox)	})      // log numberbox direct off server
+  	console.log(state)
+
 })
 
 class AuthBar extends Component{
@@ -77,11 +83,11 @@ class AuthBar extends Component{
   	counter.get().then(function(doc){ console.log(doc.data().numberbox)	})
   }
 
-    updateItem = (e) => {
+    increaseRemoteNumberbox = (e) => {
 // 	  console.log(e)
       const counter = firebase.firestore().collection('reactapp').doc('counters')
   	  counter.update({
-      numberbox: 2
+      numberbox: 3
       })
       .then(function(docRef) {      })
       .catch(function(error) {
@@ -99,7 +105,7 @@ class AuthBar extends Component{
     	  <input type='text' value={this.state.password} onChange={this.updatePassword} />        
     	  <Button onClick={this.logUserIn}> Login </Button>
     	  <Button onClick={this.addItem}> addItem </Button>
-    	  <Button onClick={this.updateItem}> updateItem </Button>	      
+    	  <Button onClick={this.increaseRemoteNumberbox}> increaseRemoteNumberbox </Button>	      
     	  <Button onClick={this.displayItem}> displayItem </Button>
 
 	      <h1> {this.state.numberondisplay} </h1>
