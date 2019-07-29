@@ -24,7 +24,7 @@ const Button = styled.button`
 `
 // Listener for changes to the collection. 
 // Make this update state in the app somewhere.                 ---- I cannot access any state from here. 
-firebase.firestore().collection('reactapp').onSnapshot(snap=>{ //--- It is outside the react class              
+//firebase.firestore().collection('reactapp').onSnapshot(snap=>{ //--- It is outside the react class              
 //	console.log(snap)                                            --- And so so how does the listener come in in the first place?
 //	console.log(snap.docChanges())                               --- And this . operater/module/notation I do not understand.
 //	let changes = snap.docChanges()
@@ -33,18 +33,33 @@ firebase.firestore().collection('reactapp').onSnapshot(snap=>{ //--- It is outsi
     // display numberbox from snapshot
 //		console.log( change.doc.data().numberbox)
 //       })
+//  	const count = firebase.firestore().collection('reactapp').doc('counters')   // deconstruct 
+ // 	count.get().then(function(doc){ console.log(doc.data().numberbox)	        // log numberbox direct off server
+ // 	})      
 
-  	const count = firebase.firestore().collection('reactapp').doc('counters')   // deconstruct 
-  	count.get().then(function(doc){ console.log(doc.data().numberbox)	})      // log numberbox direct off server
-  	console.log(state)
-
-})
+//  	console.log(state)
+//})
 
 class AuthBar extends Component{
   
-  state={username: '',
+  constructor (){
+  	super();
+  	this.state={username: '',
          password: '',
          numberondisplay: 0}
+  }
+
+  componentDidMount(){
+  	  //this.setState({numberondisplay: 6})
+  	  const rootRef = firebase.database().ref().child('react')
+      const nodRef = rootRef.child('numberondisplay')
+      nodRef.on('value', snap => {
+        this.setState({
+        	numberondisplay: snap.val()
+        })	
+      }) 	  
+  }
+
 
   incrementCount = (e) => {this.setState({ numberondisplay: this.state.numberondisplay + 1 })}  
   updateUsername = (e) => {this.setState( {username: e.target.value} )}
