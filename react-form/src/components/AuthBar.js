@@ -22,11 +22,9 @@ const Button = styled.button`
 	padding: 1rem;
 	margin: 1rem;
 `
-// Listener for changes to the collection. 
-// Make this update state in the app somewhere.                 ---- I cannot access any state from here. 
-//firebase.firestore().collection('reactapp').onSnapshot(snap=>{ //--- It is outside the react class              
-//	console.log(snap)                                            --- And so so how does the listener come in in the first place?
-//	console.log(snap.docChanges())                               --- And this . operater/module/notation I do not understand.
+//firebase.firestore().collection('reactapp').onSnapshot(snap=>{ 
+//	console.log(snap)                                           
+//	console.log(snap.docChanges())                               
 //	let changes = snap.docChanges()
 //	changes.forEach( change => {
       // console.log( change.doc.data() )
@@ -41,25 +39,53 @@ const Button = styled.button`
 //})
 
 class AuthBar extends Component{
-  
+ /* 
   constructor (){
   	super();
   	this.state={username: '',
          password: '',
          numberondisplay: 0}
   }
+*/
+  state={username: '',
+         password: '',
+         numberondisplay: 7}
 
-  componentDidMount(){
+/*  componentDidMount(){
   	  //this.setState({numberondisplay: 6})
-  	  const rootRef = firebase.database().ref().child('react')
-      const nodRef = rootRef.child('numberondisplay')
-      nodRef.on('value', snap => {
+  	  const rootReference = firebase.firestore().collection('reactapp').doc('counters')
+  	  console.log (rootReference)
+      const specificReference = rootReference.child('numberondisplay')
+           console.log (specificReference)
+       specificReference.on('value', snap => {
+        console.log (snap.val())
         this.setState({
         	numberondisplay: snap.val()
-        })	
-      }) 	  
-  }
+        })   	
+      }) 	 
+  }  */
 
+  getRealtimeUpdates () {
+	firebase.firestore().collection('reactapp').doc('counters').onSnapshot(snap=>{ 
+	console.log(snap) 
+	console.log(snap.data().numberbox)
+//	console.log (snap.docChanges())
+//	let currentvalue=snap.data().numberbox
+	this.setState({numberondisplay: snap.data().numberbox})                                           
+    })}
+//	console.log(snap.docChanges())                               
+//	let changes = snap.docChanges()
+//	changes.forEach( change => {
+      // console.log( change.doc.data() )
+    // display numberbox from snapshot
+//		console.log( change.doc.data().numberbox)
+//       })
+//  	const count = firebase.firestore().collection('reactapp').doc('counters')   // deconstruct 
+ // 	count.get().then(function(doc){ console.log(doc.data().numberbox)	        // log numberbox direct off server
+ // 	})      
+
+//  	console.log(state)
+//})
 
   incrementCount = (e) => {this.setState({ numberondisplay: this.state.numberondisplay + 1 })}  
   updateUsername = (e) => {this.setState( {username: e.target.value} )}
@@ -122,7 +148,7 @@ class AuthBar extends Component{
     	  <Button onClick={this.addItem}> addItem </Button>
     	  <Button onClick={this.increaseRemoteNumberbox}> increaseRemoteNumberbox </Button>	      
     	  <Button onClick={this.displayItem}> displayItem </Button>
-
+          {this.getRealtimeUpdates()}
 	      <h1> {this.state.numberondisplay} </h1>
 	  </div>
     )
