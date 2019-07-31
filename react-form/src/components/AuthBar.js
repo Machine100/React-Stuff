@@ -67,8 +67,8 @@ class AuthBar extends Component{
 
   getRealtimeUpdates () {
 	firebase.firestore().collection('reactapp').doc('counters').onSnapshot(snap=>{ 
-	console.log(snap) 
-	console.log(snap.data().numberbox)
+//	console.log(snap) 
+//	console.log(snap.data().numberbox)
 //	console.log (snap.docChanges())
 //	let currentvalue=snap.data().numberbox
 	this.setState({numberondisplay: snap.data().numberbox})                                           
@@ -124,13 +124,13 @@ class AuthBar extends Component{
   	counter.get().then(function(doc){ console.log(doc.data().numberbox)	})
   }
 
-    increaseRemoteNumberbox = (e) => {
+    setRemoteNumberbox = (e) => {
 // 	  console.log(e)
-      const counter = firebase.firestore().collection('reactapp').doc('counters')
-  	  counter.update({
-      numberbox: 3
+      const documentReference = firebase.firestore().collection('reactapp').doc('counters')
+  	  documentReference.update({
+      numberbox: 55
       })
-      .then(function(docRef) {      })
+ //     .then(function(docRef) {      })
       .catch(function(error) {
         console.error("Error updating document: ", error);
       });
@@ -146,7 +146,7 @@ class AuthBar extends Component{
     	  <input type='text' value={this.state.password} onChange={this.updatePassword} />        
     	  <Button onClick={this.logUserIn}> Login </Button>
     	  <Button onClick={this.addItem}> addItem </Button>
-    	  <Button onClick={this.increaseRemoteNumberbox}> increaseRemoteNumberbox </Button>	      
+    	  <Button onClick={this.setRemoteNumberbox}> setRemoteNumberbox </Button>	      
     	  <Button onClick={this.displayItem}> displayItem </Button>
           {this.getRealtimeUpdates()}
 	      <h1> {this.state.numberondisplay} </h1>
