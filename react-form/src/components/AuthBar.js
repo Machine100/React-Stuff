@@ -137,6 +137,7 @@ class AuthBar extends Component{
     }
   
   render() {
+  	          {this.getRealtimeUpdates()}
     return (
       <div id="stripobuttons">
     	
