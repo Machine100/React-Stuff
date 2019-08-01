@@ -13,8 +13,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-//console.log (firebase)
-//
 
 const Button = styled.button`
 	background-color: paleblue;
@@ -39,53 +37,15 @@ const Button = styled.button`
 //})
 
 class AuthBar extends Component{
- /* 
-  constructor (){
-  	super();
-  	this.state={username: '',
-         password: '',
-         numberondisplay: 0}
-  }
-*/
+
   state={username: '',
          password: '',
          numberondisplay: 7}
 
-/*  componentDidMount(){
-  	  //this.setState({numberondisplay: 6})
-  	  const rootReference = firebase.firestore().collection('reactapp').doc('counters')
-  	  console.log (rootReference)
-      const specificReference = rootReference.child('numberondisplay')
-           console.log (specificReference)
-       specificReference.on('value', snap => {
-        console.log (snap.val())
-        this.setState({
-        	numberondisplay: snap.val()
-        })   	
-      }) 	 
-  }  */
-
   getRealtimeUpdates () {
 	firebase.firestore().collection('reactapp').doc('counters').onSnapshot(snap=>{ 
-//	console.log(snap) 
-//	console.log(snap.data().numberbox)
-//	console.log (snap.docChanges())
-//	let currentvalue=snap.data().numberbox
 	this.setState({numberondisplay: snap.data().numberbox})                                           
-    })}
-//	console.log(snap.docChanges())                               
-//	let changes = snap.docChanges()
-//	changes.forEach( change => {
-      // console.log( change.doc.data() )
-    // display numberbox from snapshot
-//		console.log( change.doc.data().numberbox)
-//       })
-//  	const count = firebase.firestore().collection('reactapp').doc('counters')   // deconstruct 
- // 	count.get().then(function(doc){ console.log(doc.data().numberbox)	        // log numberbox direct off server
- // 	})      
-
-//  	console.log(state)
-//})
+    })} 
 
   incrementCount = (e) => {this.setState({ numberondisplay: this.state.numberondisplay + 1 })}  
   updateUsername = (e) => {this.setState( {username: e.target.value} )}
@@ -104,7 +64,7 @@ class AuthBar extends Component{
 	  promise.catch(e => console.log(e.message));
    }
 
-  addItem = (e) => {
+  createItem = (e) => {
 //  	console.log(e)
   	firebase.firestore().collection("users2").add({
     first: "Ada",
@@ -119,16 +79,15 @@ class AuthBar extends Component{
     });
   }
 
-  displayItem = (e) => {
+  readRemoteNumberbox = (e) => {
   	const counter = firebase.firestore().collection('reactapp').doc('counters')
   	counter.get().then(function(doc){ console.log(doc.data().numberbox)	})
   }
 
-    setRemoteNumberbox = (e) => {
-// 	  console.log(e)
+    updateRemoteNumberbox = (e) => {
       const documentReference = firebase.firestore().collection('reactapp').doc('counters')
   	  documentReference.update({
-      numberbox: 55
+      numberbox: 556
       })
  //     .then(function(docRef) {      })
       .catch(function(error) {
@@ -140,16 +99,13 @@ class AuthBar extends Component{
   	          {this.getRealtimeUpdates()}
     return (
       <div id="stripobuttons">
-    	
-    	  Username:
-    	  <input type='text' value={this.state.username} onChange={this.updateUsername} />
-    	  Password:
-    	  <input type='text' value={this.state.password} onChange={this.updatePassword} />        
+    	  Username: <input type='text' value={this.state.username} onChange={this.updateUsername} />
+    	  Password: <input type='text' value={this.state.password} onChange={this.updatePassword} />        
     	  <Button onClick={this.logUserIn}> Login </Button>
-    	  <Button onClick={this.addItem}> addItem </Button>
-    	  <Button onClick={this.setRemoteNumberbox}> setRemoteNumberbox </Button>	      
-    	  <Button onClick={this.displayItem}> displayItem </Button>
-          {this.getRealtimeUpdates()}
+    	  <Button onClick={this.createItem}> createItem </Button>
+    	  <Button onClick={this.readRemoteNumberbox}> readRemoteNumberbox </Button>
+    	  <Button onClick={this.updateRemoteNumberbox}> updateRemoteNumberbox </Button>	      
+
 	      <h1> {this.state.numberondisplay} </h1>
 	  </div>
     )
