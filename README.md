@@ -1,8 +1,6 @@
 # React-Stuff
 
-Build react projects in here. Experimenting with CSS and JavaScript.
+Building react projects in here. Experimenting with CSS and JavaScript.
 
-react-test:
-react-thing:
+Moving projects into Angular now.
 
-react-form: follow video. How to do event handlers with react. Get off vanilla js event handling that have been studying. Will have to get into props to make this work.
