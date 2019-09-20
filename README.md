@@ -2,5 +2,7 @@
 
 Building react projects in here. Experimenting with CSS and JavaScript.
 
-Nothing in this repo is noteworthy. It has been a place for experimentation.
+Implemented some firebase stuff with react.
+
+This repo is closed. I'm not liking React much and am moving on to Angular.
 
